@@ -371,7 +371,77 @@
       /* ---------- Restyle 22/11: profundidade sutil nos cartoes ---------- */
       .step,.kpi,.box,.car-row,.lead-row,.price-card,.stock-card,.sim-box,.includes,.crm-shell,.browser{ box-shadow:0 1px 3px rgba(0,0,0,.35); }
 </style>
-  <style>.lang-sw{display:inline-flex;gap:4px;flex-wrap:wrap;margin-left:auto;vertical-align:middle}.lang-sw button{border:1px solid #2b2b31;background:#222228;color:#a7a7ae;font:inherit;font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer}.lang-sw button.on{background:#f7c948;border-color:#f7c948;color:#171300}</style></head>
+  <style>/* ---------- Rebuild 22/11: seletor de idioma padrao Kizuna (bandeira + nome) ---------- */
+.lang-picker{ position:relative; margin-left:auto; flex:0 1 auto; }
+.lang-trigger{ display:flex; align-items:center; gap:7px; border:1px solid var(--line); border-radius:8px; background:#141416; color:var(--ink); font:inherit; font-size:12.5px; font-weight:600; padding:7px 10px; cursor:pointer; white-space:nowrap; }
+.lang-atual{ display:flex; align-items:center; gap:8px; }
+.lang-trigger svg, .lang-menu svg{ width:30px; height:20px; border-radius:3px; flex:none; display:block; }
+.lang-menu{ position:absolute; right:0; top:calc(100% + 6px); min-width:184px; padding:5px; background:#171a1e; border:1px solid var(--line); border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.5); z-index:80; }
+.lang-menu[hidden]{ display:none; }
+.lang-menu button{ display:flex; align-items:center; gap:8px; width:100%; border:0; border-radius:6px; background:transparent; color:var(--ink); font:inherit; font-size:13px; text-align:left; padding:8px; cursor:pointer; }
+.lang-menu button:hover, .lang-menu button:focus-visible{ background:#34383d; }
+.lang-check{ margin-left:auto; visibility:hidden; }
+.lang-menu button.ativa .lang-check{ visibility:visible; }
+#fsSlot{ display:inline-flex; flex:0 0 auto; }
+.fs-btn{ margin-left:2px; padding:7px 12px; border-radius:8px; border:1px solid var(--yellow); background:var(--yellow); color:var(--yellow-ink); font-weight:600; font-size:12.5px; cursor:pointer; font-family:inherit; white-space:nowrap; }
+.url-pill{ flex:1 1 90px; }
+
+/* ---------- Rebuild 22/11: hero do site nunca encosta na barra ---------- */
+.site-hero img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.site-hero .shade{ position:relative; inset:auto; min-height:400px; padding:48px 28px; }
+@media (max-width:760px){ .site-hero .shade{ min-height:360px; padding:42px 22px; } }
+
+/* ---------- Rebuild 22/11: Conecta+ em estrutura de app (padrao Kizuna, marca Autocar) ---------- */
+.crm-app{ display:flex; background:#F5F7F9; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.35); }
+.crm-side{ width:248px; flex:0 0 248px; background:#14181A; color:#EDEEEA; padding:20px 16px; display:flex; flex-direction:column; }
+.crm-brand{ display:flex; gap:12px; align-items:center; padding:4px 8px 16px; }
+.crm-brand .crm-logo{ width:42px; height:42px; flex:0 0 42px; border-radius:10px; background:#000; border:1px solid #2b2b31; display:flex; align-items:center; justify-content:center; font-family:"Oswald",sans-serif; font-weight:600; font-size:14px; color:var(--ink); }
+.crm-brand .crm-logo em{ font-style:normal; color:var(--yellow); }
+.crm-brand b{ font-family:"Oswald",sans-serif; font-size:14px; font-weight:600; letter-spacing:.06em; display:block; line-height:1.25; }
+.crm-brand span{ font-size:10.5px; font-weight:500; letter-spacing:.18em; color:#9AA39D; display:block; margin-top:2px; }
+.crm-grupo{ font-size:12px; font-weight:600; color:#9AA39D; margin:14px 8px 8px; }
+.crm-nav{ display:flex; flex-direction:column; }
+.crm-side .crm-tab{ display:flex; align-items:center; gap:8px; width:100%; text-align:left; background:transparent; border:0; color:#EDEEEA; font:inherit; font-size:14.5px; font-weight:500; padding:9px 12px; margin-bottom:2px; border-radius:8px; cursor:pointer; }
+.crm-side .crm-tab:hover{ background:rgba(245,245,243,.07); }
+.crm-side .crm-tab.active{ background:var(--yellow); color:var(--yellow-ink); font-weight:600; }
+.crm-side .crm-tab.active .tab-badge{ background:rgba(23,19,0,.85); color:var(--yellow); }
+.crm-side-user{ margin-top:auto; padding:16px 8px 4px; border-top:1px solid rgba(245,245,243,.12); display:flex; align-items:center; gap:10px; }
+.avatar-sm{ width:32px; height:32px; flex:0 0 32px; border-radius:999px; background:#22262A; border:1px solid rgba(245,245,243,.25); color:#EDEEEA; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:14px; }
+.crm-side-user b{ display:block; font-size:13.5px; line-height:1.3; }
+.crm-side-user span{ display:block; font-size:12px; color:#9AA39D; }
+.crm-main{ flex:1; min-width:0; padding:20px 22px 26px; color:#1C211E;
+  --panel:#FFFFFF; --panel-2:#FFFFFF; --panel-3:#ECEEEA;
+  --line:rgba(28,33,30,.14); --ink:#1C211E; --muted:#5F6B62; --muted-2:#87917F;
+}
+.crm-top{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+.crm-top h2{ font-size:21px; font-weight:600; }
+.selo-demo{ display:inline-block; background:transparent; border:1px solid rgba(28,33,30,.35); color:#454E47; font-size:12px; font-weight:600; padding:3px 8px; border-radius:6px; white-space:nowrap; }
+.crm-menu-btn{ display:none; background:#FFFFFF; border:1px solid rgba(28,33,30,.26); color:#1C211E; border-radius:8px; padding:8px 12px; font:inherit; font-size:14px; font-weight:600; cursor:pointer; align-items:center; gap:8px; }
+.crm-menu-btn svg{ width:18px; height:18px; flex:none; }
+.crm-overlay{ display:none; }
+.crm-main .kpis{ grid-template-columns:repeat(4,minmax(0,1fr)); grid-auto-rows:1fr; gap:12px; margin-bottom:18px; }
+.crm-main .kpi{ border-color:var(--line); border-radius:12px; padding:16px; box-shadow:0 1px 2px rgba(16,19,18,.04); }
+.crm-main .kpi .k-label{ font-size:13.5px; }
+.crm-main .kpi .k-value{ font-size:27px; margin-top:2px; }
+.crm-main .kpi .k-value.money{ color:var(--ink); }
+.crm-main .box{ border-color:var(--line); box-shadow:0 1px 2px rgba(16,19,18,.04); }
+.crm-main .car-row, .crm-main .lead-row{ border-color:var(--line); box-shadow:0 1px 2px rgba(16,19,18,.04); }
+.crm-main .car-row .c-price{ color:var(--ink); }
+.crm-main .fin-total strong{ color:var(--ink); }
+.crm-main .tag.site{ background:#DBE7FF; color:#274B8F; }
+.crm-main .tag.whats{ background:#D9F5E1; color:#146C2E; }
+.crm-main .tag.loja{ background:#E9DEFC; color:#5B3A9E; }
+.crm-main .ask-chip:hover{ border-color:var(--yellow); color:var(--ink); }
+@media (max-width:760px){
+  .crm-menu-btn{ display:inline-flex; }
+  .crm-side{ position:fixed; left:0; top:0; z-index:120; width:264px; flex:none; height:100dvh; transform:translateX(-105%); transition:transform .25s ease; box-shadow:0 0 40px rgba(0,0,0,.35); }
+  .crm-side.aberta{ transform:none; }
+  .crm-overlay{ display:block; position:fixed; inset:0; z-index:110; background:rgba(0,0,0,.45); opacity:0; pointer-events:none; transition:opacity .25s; }
+  .crm-overlay.visivel{ opacity:1; pointer-events:auto; }
+  .crm-main{ padding:16px 14px 22px; }
+  .crm-main .kpis{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .crm-main .kpi .k-value{ font-size:23px; }
+}</style></head>
   <body>
     <header class="topbar">
       <div class="topbar-in">
@@ -444,27 +514,34 @@
 
       <!-- ================= CRM ================= -->
       <section class="view active" id="view-crm">
-        <div class="crm-shell">
-          <div class="crm-head">
-            <div class="crm-logo">L<em>&amp;</em>D</div>
-            <h2>Conecta+ AutoCar L&amp;D</h2>
-            <span class="demo-pill">DEMONSTRAÇÃO</span>
-            <div class="crm-user">
-              <div class="avatar">J</div>
-              <span>Jorge · Administrador</span>
+        <div class="crm-app">
+          <div class="crm-overlay" id="crmOverlay"></div>
+          <aside class="crm-side" id="crmSide">
+            <div class="crm-brand">
+              <div class="crm-logo">L<em>&amp;</em>D</div>
+              <div><b>AUTOCAR L&amp;D</b><span>IWATA · CONECTA+</span></div>
             </div>
-          </div>
+            <p class="crm-grupo">Menu</p>
+            <nav class="crm-nav" aria-label="Áreas do Conecta+">
+              <button class="crm-tab active" data-crmtab="painel">Painel</button>
+              <button class="crm-tab" data-crmtab="estoque">Estoque</button>
+              <button class="crm-tab" data-crmtab="interessados">Interessados <span class="tab-badge" id="leadBadge">1</span></button>
+              <button class="crm-tab" data-crmtab="financeiro">Financeiro</button>
+              <button class="crm-tab" data-crmtab="pergunte">Pergunte ao sistema</button>
+              <button class="crm-tab" data-crmtab="dados">Dados da loja</button>
+            </nav>
+            <div class="crm-side-user">
+              <div class="avatar-sm">J</div>
+              <div><b>Jorge</b><span>Administrador</span></div>
+            </div>
+          </aside>
+          <div class="crm-main">
+            <div class="crm-top">
+              <button class="crm-menu-btn" id="crmMenuBtn" type="button" aria-label="Abrir menu do Conecta+"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+              <h2>Conecta+ AutoCar L&amp;D</h2>
+              <span class="selo-demo">Demonstração</span>
+            </div>
 
-          <div class="crm-tabs" role="tablist" aria-label="Áreas do Conecta+">
-            <button class="crm-tab active" data-crmtab="painel">Painel</button>
-            <button class="crm-tab" data-crmtab="estoque">Estoque</button>
-            <button class="crm-tab" data-crmtab="interessados">Interessados <span class="tab-badge" id="leadBadge">1</span></button>
-            <button class="crm-tab" data-crmtab="financeiro">Financeiro</button>
-            <button class="crm-tab" data-crmtab="pergunte">Pergunte ao sistema</button>
-            <button class="crm-tab" data-crmtab="dados">Dados da loja</button>
-          </div>
-
-          <div class="crm-body">
             <!-- Painel -->
             <div class="crm-pane active" id="pane-painel">
               <div class="kpis">
@@ -513,8 +590,6 @@
               <div class="fin-total"><span>Total de vendas do mês</span><strong id="finTotal">¥0</strong></div>
             </div>
 
-            <!-- Dados da loja -->
-  
           <!-- Pergunte ao sistema (Conecta+) -->
           <div class="crm-pane" id="pane-pergunte">
             <h3 style="margin-bottom:6px">Pergunte ao sistema</h3>
@@ -567,8 +642,7 @@
         <div class="browser">
           <div class="browser-bar">
             <div class="dots"><i></i><i></i><i></i></div>
-            <div class="url-pill"><b>https://</b> www.autocarld.net</div><span class="lang-sw" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" class="on">PT</button><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="tl">TL</button><button class="fs-btn" id="fsBtn" type="button">Tela cheia</button></span>
-            <div style="width:54px"></div>
+            <div class="url-pill"><b>https://</b> www.autocarld.net</div><span class="lang-picker" id="langPicker"><button type="button" class="lang-trigger" id="langTrigger" aria-haspopup="menu" aria-expanded="false"><span class="lang-atual" id="langAtual"><svg aria-hidden="true" viewBox="0 0 30 20"><rect width="30" height="20" fill="#229e45"/><path d="M15 2 28 10 15 18 2 10Z" fill="#ffdf00"/><circle cx="15" cy="10" r="4.5" fill="#244a9b"/></svg><span>Português</span></span><span aria-hidden="true">▾</span></button><span class="lang-menu" id="langMenu" role="menu" hidden><button type="button" role="menuitem" data-lang="pt" class="ativa"><svg aria-hidden="true" viewBox="0 0 30 20"><rect width="30" height="20" fill="#229e45"/><path d="M15 2 28 10 15 18 2 10Z" fill="#ffdf00"/><circle cx="15" cy="10" r="4.5" fill="#244a9b"/></svg><span>Português</span><span class="lang-check" aria-hidden="true">✓</span></button><button type="button" role="menuitem" data-lang="ja"><svg aria-hidden="true" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><circle cx="15" cy="10" r="5.5" fill="#bc002d"/></svg><span>日本語</span><span class="lang-check" aria-hidden="true">✓</span></button><button type="button" role="menuitem" data-lang="en"><svg aria-hidden="true" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><path d="M0 1h30M0 4h30M0 7h30M0 10h30M0 13h30M0 16h30M0 19h30" stroke="#b22234" stroke-width="1.5"/><path fill="#3c3b6e" d="M0 0h13v10H0z"/></svg><span>English</span><span class="lang-check" aria-hidden="true">✓</span></button><button type="button" role="menuitem" data-lang="es"><svg aria-hidden="true" viewBox="0 0 30 20"><rect width="30" height="20" fill="#aa151b"/><path fill="#f1bf00" d="M0 5h30v10H0z"/></svg><span>Español</span><span class="lang-check" aria-hidden="true">✓</span></button><button type="button" role="menuitem" data-lang="tl"><svg aria-hidden="true" viewBox="0 0 30 20"><rect width="30" height="10" fill="#0038a8"/><rect y="10" width="30" height="10" fill="#ce1126"/><path d="M0 0 16 10 0 20Z" fill="#fff"/><circle cx="5" cy="10" r="2" fill="#fcd116"/></svg><span>Tagalog</span><span class="lang-check" aria-hidden="true">✓</span></button></span></span><span id="fsSlot"><button class="fs-btn" id="fsBtn" type="button">Tela cheia</button></span>
           </div>
 
           <div class="site-hero">
@@ -1098,7 +1172,7 @@
       var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
       var nodes = [], n; while (n = w.nextNode()) nodes.push(n);
       nodes.forEach(function (node) {
-        if (node.parentElement && node.parentElement.closest('.lang-sw')) return;
+        if (node.parentElement && node.parentElement.closest('.lang-picker')) return;
         if (!origText.has(node)) origText.set(node, node.nodeValue);
         var o = origText.get(node), t = o.replace(/\s+/g, ' ').trim();
         if (!t) return;
@@ -1127,11 +1201,26 @@
         img.setAttribute('alt', v);
       });
     });
-    document.querySelectorAll('.lang-sw button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+    document.querySelectorAll('.lang-menu button').forEach(function (b) { b.classList.toggle('ativa', b.getAttribute('data-lang') === lang); });
+    var ativoBtn = document.querySelector('.lang-menu button[data-lang="' + lang + '"]');
+    var atualEl = document.getElementById('langAtual');
+    if (ativoBtn && atualEl) atualEl.innerHTML = ativoBtn.innerHTML.replace('<span class="lang-check"', '<span hidden class="lang-check"');
     try { localStorage.setItem('autocar-lang', lang); } catch (e) {}
   }
-  document.querySelectorAll('.lang-sw button').forEach(function (b) {
-    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+  var langMenu = document.getElementById('langMenu');
+  var langTrigger = document.getElementById('langTrigger');
+  function fecharMenu() { if (langMenu) langMenu.hidden = true; if (langTrigger) langTrigger.setAttribute('aria-expanded', 'false'); }
+  if (langTrigger && langMenu) {
+    langTrigger.addEventListener('click', function () {
+      var abrir = langMenu.hidden;
+      langMenu.hidden = !abrir;
+      langTrigger.setAttribute('aria-expanded', String(abrir));
+    });
+    document.addEventListener('click', function (e) { if (!e.target.closest('.lang-picker')) fecharMenu(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fecharMenu(); });
+  }
+  document.querySelectorAll('.lang-menu button').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); fecharMenu(); });
   });
   var grid = document.getElementById('siteStockGrid');
   if (grid && window.MutationObserver) {
@@ -1140,6 +1229,21 @@
   }
   var saved = 'pt'; try { saved = localStorage.getItem('autocar-lang') || 'pt'; } catch (e) {}
   if (saved !== 'pt' && DICT[saved]) apply(saved);
+})();
+</script>
+  <script>
+(function () {
+  /* Build online: se o botao Tela cheia (#fsBtn) for inserido dentro do menu de
+     idiomas (regra antiga, apos data-lang="tl"), move ele pro slot ao lado do seletor. */
+  var slot = document.getElementById('fsSlot');
+  var fsBtn = document.getElementById('fsBtn');
+  if (slot && fsBtn && fsBtn.parentElement !== slot) slot.appendChild(fsBtn);
+  /* Gaveta mobile do Conecta+ */
+  var side = document.getElementById('crmSide'), ov = document.getElementById('crmOverlay'), mb = document.getElementById('crmMenuBtn');
+  function fechar() { if (side) side.classList.remove('aberta'); if (ov) ov.classList.remove('visivel'); }
+  if (mb && side && ov) mb.addEventListener('click', function () { side.classList.add('aberta'); ov.classList.add('visivel'); });
+  if (ov) ov.addEventListener('click', fechar);
+  document.querySelectorAll('.crm-side .crm-tab').forEach(function (b) { b.addEventListener('click', fechar); });
 })();
 </script>
 <style>
