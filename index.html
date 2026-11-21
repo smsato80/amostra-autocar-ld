@@ -368,7 +368,15 @@
       .ask-row input{ flex:1; background:var(--panel-2); border:1px solid var(--line); border-radius:10px; color:var(--ink); padding:11px 14px; font:inherit; font-size:15.5px; min-width:0; }
       .ask-note{ color:var(--muted-2); font-size:13.5px; margin-top:12px; }
 </style>
-  <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style></head>
+  <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style><style>
+  .fs-btn{ background:var(--yellow); color:var(--yellow-ink); border:none; border-radius:8px; padding:7px 12px; font-weight:700; font-size:12.5px; cursor:pointer; white-space:nowrap; }
+  body.site-clean .topbar{ display:none; }
+  body.site-clean .fs-btn{ display:none; }
+  body.site-clean .wrap{ padding-top:14px; }
+  #voltarAmostra{ display:none; position:fixed; right:12px; bottom:12px; z-index:99; background:rgba(20,20,22,.92); color:#fff; border:1px solid #666; border-radius:999px; padding:8px 14px; font-size:12.5px; text-decoration:none; }
+  body.site-clean #voltarAmostra{ display:block; }
+</style>
+</head>
   <body>
     <header class="topbar">
       <div class="topbar-in">
@@ -565,7 +573,7 @@
           <div class="browser-bar">
             <div class="dots"><i></i><i></i><i></i></div>
             <div class="url-pill"><b>https://</b> www.autocarld.net</div><span class="lang-sw" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" class="on">PT</button><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="en">EN</button></span>
-            <div style="width:54px"></div>
+            <button type="button" class="fs-btn" id="btnTelaCheia">Tela cheia</button>
           </div>
 
           <div class="site-hero">
@@ -842,6 +850,16 @@
       document.querySelectorAll("[data-goto]").forEach(function (b) {
         b.addEventListener("click", function () { showView(b.getAttribute("data-goto")); });
       });
+
+      /* ---------- Site em tela cheia ---------- */
+      var btnFs = document.getElementById("btnTelaCheia");
+      if (btnFs) btnFs.addEventListener("click", function () { window.open(location.pathname + "?site=1", "_blank"); });
+      if (new URLSearchParams(location.search).has("site")) {
+        document.body.classList.add("site-clean");
+        var va = document.getElementById("voltarAmostra");
+        if (va) va.setAttribute("href", location.pathname);
+        showView("site");
+      }
 
       /* ---------- Abas internas do CRM ---------- */
       function showCrmTab(name) {
@@ -1126,5 +1144,6 @@
   if (saved !== 'pt' && DICT[saved]) apply(saved);
 })();
 </script>
+<a id="voltarAmostra" href="#">&larr; Voltar &agrave; amostra</a>
 </body>
 </html>
