@@ -47,7 +47,7 @@
         position:sticky; top:0; z-index:40;
         background:rgba(10,10,11,.94);
         backdrop-filter:blur(8px);
-        border-bottom:none;
+        
       }
       .topbar-in{ max-width:1060px; margin:0 auto; padding:10px 16px 0; }
       .brand-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:10px; }
@@ -368,15 +368,7 @@
       .ask-row input{ flex:1; background:var(--panel-2); border:1px solid var(--line); border-radius:10px; color:var(--ink); padding:11px 14px; font:inherit; font-size:15.5px; min-width:0; }
       .ask-note{ color:var(--muted-2); font-size:13.5px; margin-top:12px; }
 </style>
-  <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style><style>
-  .fs-btn{ background:var(--yellow); color:var(--yellow-ink); border:none; border-radius:8px; padding:7px 12px; font-weight:700; font-size:12.5px; cursor:pointer; white-space:nowrap; }
-  body.site-clean .topbar{ display:none; }
-  body.site-clean .fs-btn{ display:none; }
-  body.site-clean .wrap{ padding-top:14px; }
-  #voltarAmostra{ display:none; position:fixed; right:12px; bottom:12px; z-index:99; background:rgba(20,20,22,.92); color:#fff; border:1px solid #666; border-radius:999px; padding:8px 14px; font-size:12.5px; text-decoration:none; }
-  body.site-clean #voltarAmostra{ display:block; }
-</style>
-</head>
+  <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style></head>
   <body>
     <header class="topbar">
       <div class="topbar-in">
@@ -572,8 +564,8 @@
         <div class="browser">
           <div class="browser-bar">
             <div class="dots"><i></i><i></i><i></i></div>
-            <div class="url-pill"><b>https://</b> www.autocarld.net</div><span class="lang-sw" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" class="on">PT</button><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="en">EN</button></span>
-            <button type="button" class="fs-btn" id="btnTelaCheia">Tela cheia</button>
+            <div class="url-pill"><b>https://</b> www.autocarld.net</div><span class="lang-sw" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" class="on">PT</button><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="tl">TL</button><button class="fs-btn" id="fsBtn" type="button">Tela cheia</button></span>
+            <div style="width:54px"></div>
           </div>
 
           <div class="site-hero">
@@ -851,16 +843,6 @@
         b.addEventListener("click", function () { showView(b.getAttribute("data-goto")); });
       });
 
-      /* ---------- Site em tela cheia ---------- */
-      var btnFs = document.getElementById("btnTelaCheia");
-      if (btnFs) btnFs.addEventListener("click", function () { window.open(location.pathname + "?site=1", "_blank"); });
-      if (new URLSearchParams(location.search).has("site")) {
-        document.body.classList.add("site-clean");
-        var va = document.getElementById("voltarAmostra");
-        if (va) va.setAttribute("href", location.pathname);
-        showView("site");
-      }
-
       /* ---------- Abas internas do CRM ---------- */
       function showCrmTab(name) {
         document.querySelectorAll(".crm-tab").forEach(function (b) {
@@ -1087,16 +1069,24 @@
 </script>
   <script>
 (function () {
-  var DICT = { ja: {"Seu próximo carro": "あなたの次の1台は、", "está aqui.": "ここにあります。", "Seminovos em Iwata, Shizuoka, com financiamento facilitado, mesmo com nome negativado. A gente busca o carro que você quer em leilões de todo o Japão.": "静岡県磐田市の中古車販売。ローン審査に不安のある方もご相談いただけます。ご希望のお車は日本全国のオークションからお探しします。", "Falar no WhatsApp": "WhatsAppで相談する", "Ver estoque": "在庫を見る", "Estoque": "在庫車両", "Ligado ao Conecta+ da loja: vendeu, sai daqui na hora. Preço e parcela à mostra, sem esperar resposta.": "お店のConecta+と連動しています。売れたらその場でここから消えます。価格も月々のお支払いも表示されるので、返事を待つ必要はありません。", "Simule seu financiamento": "ローンシミュレーション", "Taxa de demonstração de 8,9% ao ano. A simulação oficial sai na loja, depois da análise.": "金利 年8.9％はデモ用の目安です。正式なシミュレーションは、審査のうえ店舗でご案内します。", "Valor do carro (¥)": "車両価格（円）", "Entrada (¥)": "頭金（円）", "Parcelas": "お支払い回数", "12x": "12回", "24x": "24回", "36x": "36回", "48x": "48回", "60x": "60回", "72x": "72回", "84x": "84回", "Parcela estimada": "月々のお支払い目安", "/mês": "／月", "· Iwata, Shizuoka": "· 静岡県磐田市", "Compra e venda de seminovos · Busca em leilões · Financiamento facilitado": "中古車の販売と買取 · オークション仕入れ · ローン相談", "Tenho interesse": "興味があります", "Carro": "お車", "Seu nome": "お名前", "Cancelar": "キャンセル", "Enviar interesse": "送信する", "RESERVADO": "商談中", "sem foto": "写真なし", "Simular": "シミュレーション", "Estoque esgotado no momento. Chame no WhatsApp: a gente busca o carro em leilão para você.": "現在、在庫はすべて売約済みです。WhatsAppでご連絡いただければ、オークションでお探しします。", "Pátio de seminovos da AutoCar L&D em Iwata": "磐田市にあるAutoCar L&Dの中古車展示場", "Ex.: Carlos Silva": "例：Carlos Silva"}, en: {"Seu próximo carro": "Your next car", "está aqui.": "is here.", "Seminovos em Iwata, Shizuoka, com financiamento facilitado, mesmo com nome negativado. A gente busca o carro que você quer em leilões de todo o Japão.": "Used cars in Iwata, Shizuoka, with financing options even if your credit is not perfect. We find the car you want at auctions all over Japan.", "Falar no WhatsApp": "Chat on WhatsApp", "Ver estoque": "See the stock", "Estoque": "Stock", "Ligado ao Conecta+ da loja: vendeu, sai daqui na hora. Preço e parcela à mostra, sem esperar resposta.": "Connected to the shop's Conecta+: once it sells, it's gone from here right away. Price and monthly payment shown upfront, no waiting for a reply.", "Simule seu financiamento": "Simulate your financing", "Taxa de demonstração de 8,9% ao ano. A simulação oficial sai na loja, depois da análise.": "Demo rate of 8.9% a year. The official simulation is done at the shop, after the credit check.", "Valor do carro (¥)": "Car price (¥)", "Entrada (¥)": "Down payment (¥)", "Parcelas": "Payments", "Parcela estimada": "Estimated monthly payment", "/mês": "/month", "Compra e venda de seminovos · Busca em leilões · Financiamento facilitado": "Used car sales and trade-ins · Auction sourcing · Financing help", "Tenho interesse": "I'm interested", "Carro": "Car", "Seu nome": "Your name", "Cancelar": "Cancel", "Enviar interesse": "Send", "RESERVADO": "RESERVED", "sem foto": "no photo", "Simular": "Simulate", "Estoque esgotado no momento. Chame no WhatsApp: a gente busca o carro em leilão para você.": "Out of stock at the moment. Message us on WhatsApp and we'll find your car at auction.", "Pátio de seminovos da AutoCar L&D em Iwata": "AutoCar L&D used car lot in Iwata", "Ex.: Carlos Silva": "E.g.: Carlos Silva", "Ex.: 090-0000-0000": "E.g.: 090-0000-0000"} };
+  var DICT = { ja: {"Seu próximo carro": "あなたの次の1台は、", "está aqui.": "ここにあります。", "Seminovos em Iwata, Shizuoka, com financiamento facilitado, mesmo com nome negativado. A gente busca o carro que você quer em leilões de todo o Japão.": "静岡県磐田市の中古車販売。ローン審査に不安のある方もご相談いただけます。ご希望のお車は日本全国のオークションからお探しします。", "Falar no WhatsApp": "WhatsAppで相談する", "Ver estoque": "在庫を見る", "Estoque": "在庫車両", "Ligado ao Conecta+ da loja: vendeu, sai daqui na hora. Preço e parcela à mostra, sem esperar resposta.": "お店のConecta+と連動しています。売れたらその場でここから消えます。価格も月々のお支払いも表示されるので、返事を待つ必要はありません。", "Simule seu financiamento": "ローンシミュレーション", "Taxa de demonstração de 8,9% ao ano. A simulação oficial sai na loja, depois da análise.": "金利 年8.9％はデモ用の目安です。正式なシミュレーションは、審査のうえ店舗でご案内します。", "Valor do carro (¥)": "車両価格（円）", "Entrada (¥)": "頭金（円）", "Parcelas": "お支払い回数", "12x": "12回", "24x": "24回", "36x": "36回", "48x": "48回", "60x": "60回", "72x": "72回", "84x": "84回", "Parcela estimada": "月々のお支払い目安", "/mês": "／月", "· Iwata, Shizuoka": "· 静岡県磐田市", "Compra e venda de seminovos · Busca em leilões · Financiamento facilitado": "中古車の販売と買取 · オークション仕入れ · ローン相談", "Tenho interesse": "興味があります", "Carro": "お車", "Seu nome": "お名前", "Cancelar": "キャンセル", "Enviar interesse": "送信する", "RESERVADO": "商談中", "sem foto": "写真なし", "Simular": "シミュレーション", "Estoque esgotado no momento. Chame no WhatsApp: a gente busca o carro em leilão para você.": "現在、在庫はすべて売約済みです。WhatsAppでご連絡いただければ、オークションでお探しします。", "Pátio de seminovos da AutoCar L&D em Iwata": "磐田市にあるAutoCar L&Dの中古車展示場", "Ex.: Carlos Silva": "例：Carlos Silva"}, en: {"Seu próximo carro": "Your next car", "está aqui.": "is here.", "Seminovos em Iwata, Shizuoka, com financiamento facilitado, mesmo com nome negativado. A gente busca o carro que você quer em leilões de todo o Japão.": "Used cars in Iwata, Shizuoka, with financing options even if your credit is not perfect. We find the car you want at auctions all over Japan.", "Falar no WhatsApp": "Chat on WhatsApp", "Ver estoque": "See the stock", "Estoque": "Stock", "Ligado ao Conecta+ da loja: vendeu, sai daqui na hora. Preço e parcela à mostra, sem esperar resposta.": "Connected to the shop's Conecta+: once it sells, it's gone from here right away. Price and monthly payment shown upfront, no waiting for a reply.", "Simule seu financiamento": "Simulate your financing", "Taxa de demonstração de 8,9% ao ano. A simulação oficial sai na loja, depois da análise.": "Demo rate of 8.9% a year. The official simulation is done at the shop, after the credit check.", "Valor do carro (¥)": "Car price (¥)", "Entrada (¥)": "Down payment (¥)", "Parcelas": "Payments", "Parcela estimada": "Estimated monthly payment", "/mês": "/month", "Compra e venda de seminovos · Busca em leilões · Financiamento facilitado": "Used car sales and trade-ins · Auction sourcing · Financing help", "Tenho interesse": "I'm interested", "Carro": "Car", "Seu nome": "Your name", "Cancelar": "Cancel", "Enviar interesse": "Send", "RESERVADO": "RESERVED", "sem foto": "no photo", "Simular": "Simulate", "Estoque esgotado no momento. Chame no WhatsApp: a gente busca o carro em leilão para você.": "Out of stock at the moment. Message us on WhatsApp and we'll find your car at auction.", "Pátio de seminovos da AutoCar L&D em Iwata": "AutoCar L&D used car lot in Iwata", "Ex.: Carlos Silva": "E.g.: Carlos Silva", "Ex.: 090-0000-0000": "E.g.: 090-0000-0000"}, es: {"Seu próximo carro": "Tu próximo carro", "está aqui.": "está aquí.", "Seminovos em Iwata, Shizuoka, com financiamento facilitado, mesmo com nome negativado. A gente busca o carro que você quer em leilões de todo o Japão.": "Carros seminuevos en Iwata, Shizuoka, con financiamiento accesible, incluso con historial crediticio negativo. Buscamos el carro que quieres en subastas de todo Japón.", "Falar no WhatsApp": "Hablar por WhatsApp", "Ver estoque": "Ver inventario", "Estoque": "Inventario", "Ligado ao Conecta+ da loja: vendeu, sai daqui na hora. Preço e parcela à mostra, sem esperar resposta.": "Conectado al Conecta+ de la tienda: si se vende, sale de aquí al instante. Precio y cuota mensual a la vista, sin esperar respuesta.", "Simule seu financiamento": "Simula tu financiamiento", "Taxa de demonstração de 8,9% ao ano. A simulação oficial sai na loja, depois da análise.": "Tasa de demostración del 8,9% anual. La simulación oficial se hace en la tienda, después del análisis de crédito.", "Valor do carro (¥)": "Precio del carro (¥)", "Entrada (¥)": "Cuota inicial (¥)", "Parcelas": "Cuotas", "12x": "12 cuotas", "24x": "24 cuotas", "36x": "36 cuotas", "48x": "48 cuotas", "60x": "60 cuotas", "72x": "72 cuotas", "84x": "84 cuotas", "Parcela estimada": "Cuota mensual estimada", "/mês": "/mes", "· Iwata, Shizuoka": "· Iwata, Shizuoka", "Compra e venda de seminovos · Busca em leilões · Financiamento facilitado": "Compra y venta de seminuevos · Búsqueda en subastas · Financiamiento accesible", "Tenho interesse": "Me interesa", "Carro": "Carro", "Seu nome": "Tu nombre", "Cancelar": "Cancelar", "Enviar interesse": "Enviar", "RESERVADO": "RESERVADO", "sem foto": "sin foto", "Simular": "Simular", "Estoque esgotado no momento. Chame no WhatsApp: a gente busca o carro em leilão para você.": "Inventario agotado por el momento. Escríbenos por WhatsApp: buscamos el carro en subasta para ti.", "Pátio de seminovos da AutoCar L&D em Iwata": "Lote de seminuevos de AutoCar L&D en Iwata", "Ex.: Carlos Silva": "Ej.: Carlos Silva", "Ex.: 090-0000-0000": "Ej.: 090-0000-0000"}, tl: {"Seu próximo carro": "Ang susunod mong kotse", "está aqui.": "nandito na.", "Seminovos em Iwata, Shizuoka, com financiamento facilitado, mesmo com nome negativado. A gente busca o carro que você quer em leilões de todo o Japão.": "Mga second-hand na kotse sa Iwata, Shizuoka, may madaling financing, kahit may negative credit record. Hahanapin namin ang kotse na gusto mo sa mga auction sa buong Japan.", "Falar no WhatsApp": "Makipag-chat sa WhatsApp", "Ver estoque": "Tingnan ang stock", "Estoque": "Stock", "Ligado ao Conecta+ da loja: vendeu, sai daqui na hora. Preço e parcela à mostra, sem esperar resposta.": "Konektado sa Conecta+ ng shop: kapag nabenta, mawawala agad dito. Kita agad ang presyo at monthly payment, hindi na kailangang maghintay ng reply.", "Simule seu financiamento": "I-simulate ang financing mo", "Taxa de demonstração de 8,9% ao ano. A simulação oficial sai na loja, depois da análise.": "Demo rate na 8.9% bawat taon. Ang opisyal na simulation ay gagawin sa shop, pagkatapos ng credit check.", "Valor do carro (¥)": "Presyo ng kotse (¥)", "Entrada (¥)": "Down payment (¥)", "Parcelas": "Bilang ng buwan", "12x": "12 buwan", "24x": "24 buwan", "36x": "36 buwan", "48x": "48 buwan", "60x": "60 buwan", "72x": "72 buwan", "84x": "84 buwan", "Parcela estimada": "Tinatayang monthly payment", "/mês": "/buwan", "· Iwata, Shizuoka": "· Iwata, Shizuoka", "Compra e venda de seminovos · Busca em leilões · Financiamento facilitado": "Bentahan at bilihan ng second-hand · Paghahanap sa auction · Madaling financing", "Tenho interesse": "Interesado ako", "Carro": "Kotse", "Seu nome": "Pangalan mo", "Cancelar": "Kanselahin", "Enviar interesse": "Ipadala", "RESERVADO": "RESERVED", "sem foto": "walang larawan", "Simular": "I-simulate", "Estoque esgotado no momento. Chame no WhatsApp: a gente busca o carro em leilão para você.": "Wala pang stock sa ngayon. Mag-message sa WhatsApp: hahanapin namin ang kotse para sa iyo sa auction.", "Pátio de seminovos da AutoCar L&D em Iwata": "Second-hand car lot ng AutoCar L&D sa Iwata", "Ex.: Carlos Silva": "Hal.: Carlos Silva", "Ex.: 090-0000-0000": "Hal.: 090-0000-0000"} };
   var cur = 'pt';
   var origText = new WeakMap(), origPh = new WeakMap(), origAlt = new WeakMap();
   function roots() { return [document.getElementById('view-site'), document.getElementById('leadModal')].filter(Boolean); }
   function pat(t, lang) {
     var m;
-    if ((m = t.match(/^Ano (\d{4}) · ([\d.,]+) km · Shaken e documentação por conta da loja$/)))
-      return lang === 'ja' ? m[1] + '年式 · ' + m[2] + ' km · 車検と登録手続きは当店負担' : 'Year ' + m[1] + ' · ' + m[2] + ' km · Shaken and registration handled by the shop';
-    if ((m = t.match(/^ou (¥[\d.,]+)\/mês em 60x \(simulação\)$/)))
-      return lang === 'ja' ? 'または月々' + m[1] + '（60回払いの目安）' : 'or ' + m[1] + '/month over 60 payments (simulation)';
+    if ((m = t.match(/^Ano (\d{4}) · ([\d.,]+) km · Shaken e documentação por conta da loja$/))) {
+      if (lang === 'ja') return m[1] + '年式 · ' + m[2] + ' km · 車検と登録手続きは当店負担';
+      if (lang === 'es') return 'Año ' + m[1] + ' · ' + m[2] + ' km · Shaken y documentación a cargo de la tienda';
+      if (lang === 'tl') return 'Taon ' + m[1] + ' · ' + m[2] + ' km · Shaken at dokumentasyon, sagot ng shop';
+      return 'Year ' + m[1] + ' · ' + m[2] + ' km · Shaken and registration handled by the shop';
+    }
+    if ((m = t.match(/^ou (¥[\d.,]+)\/mês em 60x \(simulação\)$/))) {
+      if (lang === 'ja') return 'または月々' + m[1] + '（60回払いの目安）';
+      if (lang === 'es') return 'o ' + m[1] + '/mes en 60 cuotas (simulación)';
+      if (lang === 'tl') return 'o ' + m[1] + '/buwan sa 60 buwan (simulation)';
+      return 'or ' + m[1] + '/month over 60 payments (simulation)';
+    }
     return null;
   }
   function apply(lang) {
@@ -1123,7 +1113,12 @@
         var o = origAlt.get(img), v = o;
         if (lang !== 'pt') {
           var mm = o.match(/^Foto do (.+)$/);
-          if (mm) v = lang === 'ja' ? mm[1] + 'の写真' : 'Photo of ' + mm[1];
+          if (mm) {
+            if (lang === 'ja') v = mm[1] + 'の写真';
+            else if (lang === 'es') v = 'Foto del ' + mm[1];
+            else if (lang === 'tl') v = 'Larawan ng ' + mm[1];
+            else v = 'Photo of ' + mm[1];
+          }
           else v = DICT[lang][o] || o;
         }
         img.setAttribute('alt', v);
@@ -1144,6 +1139,15 @@
   if (saved !== 'pt' && DICT[saved]) apply(saved);
 })();
 </script>
-<a id="voltarAmostra" href="#">&larr; Voltar &agrave; amostra</a>
+<style>
+.fs-btn{margin-left:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--yellow);background:var(--yellow);color:#1b1b1b;font-weight:700;font-size:12px;cursor:pointer;font-family:inherit}
+.fs-note{position:fixed;right:10px;bottom:10px;z-index:999;background:#1b1b1b;color:#fff;border:1px solid var(--yellow);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;font-family:inherit}
+body.fs-mode .topbar{display:none}
+body.fs-mode .fs-btn{display:none}
+</style>
+<script>
+(function(){var q=new URLSearchParams(location.search);var b=document.getElementById('fsBtn');if(b){b.addEventListener('click',function(){window.open(location.pathname+'?site=1','_blank');});}
+if(q.get('site')==='1'){document.body.classList.add('fs-mode');var tb=document.querySelector('[data-view="site"]');if(tb){tb.click();}var a=document.createElement('a');a.className='fs-note';a.href=location.pathname;a.textContent='Voltar à amostra';document.body.appendChild(a);}})();
+</script>
 </body>
 </html>
