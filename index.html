@@ -441,7 +441,41 @@
   .crm-main{ padding:16px 14px 22px; }
   .crm-main .kpis{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .crm-main .kpi .k-value{ font-size:23px; }
-}</style></head>
+}
+/* ---------- Modulos 22/11: profundidade do Sob Medida ---------- */
+.crm-side{ overflow-y:auto; }
+.crm-main .fn-strip{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+.crm-main .fn-stage{ background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px 12px; font-size:13.5px; color:var(--muted); }
+.crm-main .fn-stage b{ color:var(--ink); font-size:15px; margin-left:5px; font-variant-numeric:tabular-nums; }
+.crm-main .tag.etapa{ background:#E7EBE8; color:#39423C; }
+.crm-main .tag.ok{ background:#D9F5E1; color:#146C2E; }
+.crm-main .tag.pend{ background:#FDEBC8; color:#8A5A00; }
+.crm-main .neg-note{ color:var(--muted); font-size:14px; margin-top:3px; }
+.crm-main .sec-note{ color:var(--muted); font-size:14.5px; margin-bottom:14px; max-width:680px; }
+.crm-main .doc-box{ margin-bottom:14px; }
+.crm-main .doc-item{ display:flex; justify-content:space-between; align-items:center; gap:10px; padding:9px 0; border-top:1px solid var(--line); font-size:15px; color:var(--ink); }
+.crm-main .doc-item .tag{ flex:0 0 auto; text-align:center; }
+.crm-main .task-row{ display:flex; gap:11px; align-items:flex-start; background:var(--panel-2); border:1px solid var(--line); border-radius:12px; padding:13px 15px; margin-bottom:10px; box-shadow:0 1px 2px rgba(16,19,18,.04); }
+.crm-main .task-check{ width:19px; height:19px; border-radius:6px; border:2px solid rgba(28,33,30,.35); flex:0 0 19px; margin-top:2px; display:flex; align-items:center; justify-content:center; font-size:13px; color:#146C2E; font-weight:700; }
+.crm-main .task-row.done .task-check{ background:#D9F5E1; border-color:#146C2E; }
+.crm-main .task-row.done .t-name{ color:var(--muted); text-decoration:line-through; }
+.crm-main .t-name{ font-weight:600; font-size:15.5px; }
+.crm-main .t-meta{ color:var(--muted); font-size:14px; margin-top:2px; }
+.crm-main .fin-table td.pos{ color:#146C2E; font-weight:600; }
+.crm-main .fin-table td.neg{ color:#B3261E; font-weight:600; }
+.crm-main .kpis.k3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+.crm-main .ponto-box{ margin-bottom:14px; }
+.crm-main .ponto-total{ display:flex; justify-content:space-between; align-items:center; padding:13px 4px 0; font-size:16px; }
+.crm-main .ponto-total strong{ font-variant-numeric:tabular-nums; }
+.crm-main table.mod-table{ table-layout:fixed; }
+.crm-main table.mod-table th, .crm-main table.mod-table td{ padding-left:6px; padding-right:6px; }
+.crm-main table.mod-table .sub{ display:block; color:var(--muted); font-size:12.5px; margin-top:1px; }
+.crm-main table.mod-table.ponto{ font-size:13.5px; }
+@media (max-width:760px){
+  .crm-main .kpis.k3{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .crm-main .kpis.k3 .kpi:last-child{ grid-column:1 / -1; }
+}
+</style></head>
   <body>
     <header class="topbar">
       <div class="topbar-in">
@@ -521,13 +555,30 @@
               <div class="crm-logo">L<em>&amp;</em>D</div>
               <div><b>AUTOCAR L&amp;D</b><span>IWATA · CONECTA+</span></div>
             </div>
-            <p class="crm-grupo">Menu</p>
-            <nav class="crm-nav" aria-label="Áreas do Conecta+">
+            <p class="crm-grupo">Principal</p>
+            <nav class="crm-nav" aria-label="Principal">
               <button class="crm-tab active" data-crmtab="painel">Painel</button>
+              <button class="crm-tab" data-crmtab="pergunte">Pergunte ao sistema</button>
+            </nav>
+            <p class="crm-grupo">Vendas</p>
+            <nav class="crm-nav" aria-label="Vendas">
               <button class="crm-tab" data-crmtab="estoque">Estoque</button>
               <button class="crm-tab" data-crmtab="interessados">Interessados <span class="tab-badge" id="leadBadge">1</span></button>
+              <button class="crm-tab" data-crmtab="negociacoes">Negociações</button>
+              <button class="crm-tab" data-crmtab="avaliacoes">Avaliações de usados</button>
+            </nav>
+            <p class="crm-grupo">Operação</p>
+            <nav class="crm-nav" aria-label="Operação">
+              <button class="crm-tab" data-crmtab="agenda">Agenda</button>
+              <button class="crm-tab" data-crmtab="tarefas">Tarefas</button>
               <button class="crm-tab" data-crmtab="financeiro">Financeiro</button>
-              <button class="crm-tab" data-crmtab="pergunte">Pergunte ao sistema</button>
+              <button class="crm-tab" data-crmtab="documentos">Documentos</button>
+            </nav>
+            <p class="crm-grupo">Equipe e sistema</p>
+            <nav class="crm-nav" aria-label="Equipe e sistema">
+              <button class="crm-tab" data-crmtab="contabilidade">Contabilidade</button>
+              <button class="crm-tab" data-crmtab="ponto">Cartão de Ponto</button>
+              <button class="crm-tab" data-crmtab="usuarios">Usuários e permissões</button>
               <button class="crm-tab" data-crmtab="dados">Dados da loja</button>
             </nav>
             <div class="crm-side-user">
@@ -580,6 +631,58 @@
               <div id="leadList"></div>
               <p class="empty-note">Quem toca em “Tenho interesse” no site cai aqui automaticamente. Use o botão de cada interessado para avançar a conversa: Novo → Em contato → Proposta → Vendido.</p>
             </div>
+            <!-- Negociações -->
+            <div class="crm-pane" id="pane-negociacoes">
+              <div class="fn-strip" id="negStrip"></div>
+              <div id="negList"></div>
+              <p class="empty-note">Cada interessado vira uma negociação aqui. A etapa anda junto com a conversa da aba Interessados e com as vendas fechadas.</p>
+            </div>
+
+            <!-- Avaliações de usados -->
+            <div class="crm-pane" id="pane-avaliacoes">
+              <div class="lead-row">
+                <div><div class="l-name">Toyota Vitz 2016</div>
+                <div class="l-meta">Carro do <strong style="color:var(--ink)">Kenji T.</strong> · 58.200 km · avaliado em <strong style="color:var(--ink)">¥380.000</strong></div>
+                <div class="neg-note">Entra na troca pela Serena Highway Star.</div></div>
+                <div class="lead-status"><span class="tag etapa">Na negociação</span></div>
+              </div>
+              <div class="lead-row">
+                <div><div class="l-name">Suzuki Hustler 2019</div>
+                <div class="l-meta">Carro da <strong style="color:var(--ink)">Ana Paula S.</strong> · 41.500 km · avaliado em <strong style="color:var(--ink)">¥520.000</strong></div>
+                <div class="neg-note">Ela está pensando na proposta de troca pelo Aqua.</div></div>
+                <div class="lead-status"><span class="tag etapa">Proposta feita</span></div>
+              </div>
+              <div class="lead-row">
+                <div><div class="l-name">Daihatsu Move 2015</div>
+                <div class="l-meta">Carro do <strong style="color:var(--ink)">Roberto A.</strong> · 77.300 km · valor sai na visita</div>
+                <div class="neg-note">Visita de avaliação marcada para amanhã, às 14:00.</div></div>
+                <div class="lead-status"><span class="tag etapa">Visita agendada</span></div>
+              </div>
+              <p class="empty-note">Avaliação de usado que entra na troca fica ligada à negociação do cliente.</p>
+            </div>
+
+            <!-- Agenda -->
+            <div class="crm-pane" id="pane-agenda">
+              <table class="fin-table">
+                <thead><tr><th>Quando</th><th>Compromisso</th><th>Responsável</th></tr></thead>
+                <tbody>
+                  <tr><td>Hoje · 15:00</td><td>Ricardo M. vem ver o Prius</td><td>Takeda</td></tr>
+                  <tr><td>Amanhã · 10:30</td><td>Entrega do Step WGN Spada ao Fernando K.</td><td>Jorge</td></tr>
+                  <tr><td>Amanhã · 14:00</td><td>Avaliação do Daihatsu Move do Roberto A.</td><td>Takeda</td></tr>
+                  <tr><td>Sábado · 11:00</td><td>Kenji T. traz os documentos que faltam da Serena</td><td>Maria</td></tr>
+                </tbody>
+              </table>
+              <p class="empty-note">Visita, entrega e avaliação ficam na mesma agenda da loja.</p>
+            </div>
+
+            <!-- Tarefas -->
+            <div class="crm-pane" id="pane-tarefas">
+              <div class="task-row"><span class="task-check"></span><div><div class="t-name">Ligar para o Ricardo M. e confirmar a visita de hoje</div><div class="t-meta">Takeda · Hoje</div></div></div>
+              <div class="task-row"><span class="task-check"></span><div><div class="t-name">Cobrar o retorno do financiamento do Kenji T.</div><div class="t-meta">Jorge · Hoje</div></div></div>
+              <div class="task-row"><span class="task-check"></span><div><div class="t-name">Preparar os documentos da entrega do Step WGN</div><div class="t-meta">Maria · Amanhã</div></div></div>
+              <div class="task-row done"><span class="task-check">✓</span><div><div class="t-name">Atualizar as fotos do Prius no site</div><div class="t-meta">Takeda · Ontem · Feita</div></div></div>
+              <p class="empty-note">Tarefa simples, com responsável e prazo, ligada às negociações da loja.</p>
+            </div>
 
             <!-- Financeiro -->
             <div class="crm-pane" id="pane-financeiro">
@@ -610,6 +713,110 @@
             </div>
             <p class="ask-note">Nesta amostra, as respostas saem dos dados de demonstração, ao vivo: se você mudar o status de um carro ou avançar um interessado nas outras abas, a resposta muda junto. No sistema da loja, a mesma camada roda sobre o banco de dados real.</p>
           </div>
+          <!-- Documentos -->
+          <div class="crm-pane" id="pane-documentos">
+              <p class="sec-note">Controle dos documentos de cada negociação: o que já chegou e o que ainda falta. É registro e controle da papelada, sem leitura automática de documentos.</p>
+              <div class="box doc-box">
+                <h3>Serena Highway Star · Kenji T.</h3>
+                <div class="doc-item"><span>Documento de identidade (zairyu card)</span><span class="tag ok">Recebido</span></div>
+                <div class="doc-item"><span>Carteira de motorista</span><span class="tag ok">Recebido</span></div>
+                <div class="doc-item"><span>Comprovante de renda</span><span class="tag ok">Recebido</span></div>
+                <div class="doc-item"><span>Documentos do carro (shaken e transferência)</span><span class="tag pend">Pendente</span></div>
+              </div>
+              <div class="box doc-box">
+                <h3>Step WGN Spada · Fernando K.</h3>
+                <div class="doc-item"><span>Documento de identidade</span><span class="tag ok">Recebido</span></div>
+                <div class="doc-item"><span>Financiamento aprovado</span><span class="tag ok">Recebido</span></div>
+                <div class="doc-item"><span>Transferência do carro</span><span class="tag pend">Pendente · sai na entrega</span></div>
+              </div>
+              <div class="box doc-box">
+                <h3>Aqua G · Ana Paula S.</h3>
+                <div class="doc-item"><span>Documento de identidade</span><span class="tag ok">Recebido</span></div>
+                <div class="doc-item"><span>Comprovante de renda</span><span class="tag pend">Pendente</span></div>
+                <div class="doc-item"><span>Documentos do Hustler da troca</span><span class="tag pend">Pendente</span></div>
+              </div>
+            </div>
+
+          <!-- Contabilidade -->
+          <div class="crm-pane" id="pane-contabilidade">
+              <div class="kpis k3">
+                <div class="kpi"><div class="k-label">Receitas do mês</div><div class="k-value" id="accReceitas">¥0</div></div>
+                <div class="kpi"><div class="k-label">Despesas do mês</div><div class="k-value" id="accDespesas">¥0</div></div>
+                <div class="kpi"><div class="k-label">Saldo do mês</div><div class="k-value" id="accSaldo">¥0</div></div>
+              </div>
+              <table class="fin-table mod-table">
+                <thead><tr><th style="width:16%">Data</th><th>Lançamento</th><th class="num" style="width:30%">Valor</th></tr></thead>
+                <tbody id="accBody"></tbody>
+              </table>
+              <p class="empty-note">As vendas entram sozinhas, vindas do Financeiro. As despesas são lançadas pela loja e o saldo é calculado dos lançamentos.</p>
+            </div>
+
+          <!-- Cartão de Ponto -->
+          <div class="crm-pane" id="pane-ponto">
+              <div class="box ponto-box">
+                <h3>Jorge · Administrador</h3>
+                <table class="fin-table mod-table ponto">
+                  <colgroup><col style="width:25%"><col style="width:19%"><col style="width:19%"><col style="width:18%"><col style="width:19%"></colgroup>
+                  <thead><tr><th>Dia</th><th>Entrada</th><th>Saída</th><th>Intervalo</th><th class="num">Total</th></tr></thead>
+                  <tbody>
+                    <tr><td>Segunda</td><td>9:00</td><td>18:30</td><td>1:00</td><td class="num">8h30</td></tr>
+                    <tr><td>Terça</td><td>9:00</td><td>18:30</td><td>1:00</td><td class="num">8h30</td></tr>
+                    <tr><td>Quarta</td><td>9:00</td><td>18:00</td><td>1:00</td><td class="num">8h00</td></tr>
+                    <tr><td>Quinta</td><td>9:00</td><td>19:00</td><td>1:00</td><td class="num">9h00</td></tr>
+                    <tr><td>Sexta</td><td>9:00</td><td>18:30</td><td>1:00</td><td class="num">8h30</td></tr>
+                    <tr><td>Sábado</td><td>9:00</td><td>15:00</td><td>0:30</td><td class="num">5h30</td></tr>
+                  </tbody>
+                </table>
+                <div class="ponto-total"><span>Total da semana</span><strong>48h00</strong></div>
+              </div>
+              <div class="box ponto-box">
+                <h3>Takeda · Vendedor</h3>
+                <table class="fin-table mod-table ponto">
+                  <colgroup><col style="width:25%"><col style="width:19%"><col style="width:19%"><col style="width:18%"><col style="width:19%"></colgroup>
+                  <thead><tr><th>Dia</th><th>Entrada</th><th>Saída</th><th>Intervalo</th><th class="num">Total</th></tr></thead>
+                  <tbody>
+                    <tr><td>Segunda</td><td>9:30</td><td>18:30</td><td>1:00</td><td class="num">8h00</td></tr>
+                    <tr><td>Terça</td><td>9:30</td><td>18:30</td><td>1:00</td><td class="num">8h00</td></tr>
+                    <tr><td>Quarta</td><td>·</td><td>·</td><td>·</td><td class="num">Folga</td></tr>
+                    <tr><td>Quinta</td><td>9:30</td><td>19:00</td><td>1:00</td><td class="num">8h30</td></tr>
+                    <tr><td>Sexta</td><td>9:30</td><td>18:30</td><td>1:00</td><td class="num">8h00</td></tr>
+                    <tr><td>Sábado</td><td>9:30</td><td>17:00</td><td>1:00</td><td class="num">6h30</td></tr>
+                  </tbody>
+                </table>
+                <div class="ponto-total"><span>Total da semana</span><strong>39h00</strong></div>
+              </div>
+              <div class="box ponto-box">
+                <h3>Maria · Financeiro</h3>
+                <table class="fin-table mod-table ponto">
+                  <colgroup><col style="width:25%"><col style="width:19%"><col style="width:19%"><col style="width:18%"><col style="width:19%"></colgroup>
+                  <thead><tr><th>Dia</th><th>Entrada</th><th>Saída</th><th>Intervalo</th><th class="num">Total</th></tr></thead>
+                  <tbody>
+                    <tr><td>Segunda</td><td>10:00</td><td>17:00</td><td>1:00</td><td class="num">6h00</td></tr>
+                    <tr><td>Terça</td><td>10:00</td><td>17:00</td><td>1:00</td><td class="num">6h00</td></tr>
+                    <tr><td>Quarta</td><td>10:00</td><td>17:00</td><td>1:00</td><td class="num">6h00</td></tr>
+                    <tr><td>Quinta</td><td>10:00</td><td>17:00</td><td>1:00</td><td class="num">6h00</td></tr>
+                    <tr><td>Sexta</td><td>10:00</td><td>16:00</td><td>1:00</td><td class="num">5h00</td></tr>
+                    <tr><td>Sábado</td><td>·</td><td>·</td><td>·</td><td class="num">Folga</td></tr>
+                  </tbody>
+                </table>
+                <div class="ponto-total"><span>Total da semana</span><strong>29h00</strong></div>
+              </div>
+              <p class="empty-note">Semana de demonstração. Cada funcionário registra a própria entrada e saída, e o total de horas é calculado pelo sistema.</p>
+            </div>
+
+          <!-- Usuários e permissões -->
+          <div class="crm-pane" id="pane-usuarios">
+              <table class="fin-table mod-table">
+                <colgroup><col style="width:36%"><col style="width:64%"></colgroup>
+                <thead><tr><th>Nome</th><th>O que acessa</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Jorge</strong><span class="sub">Administrador · login: jorge</span></td><td>Todas as áreas, usuários e configurações da loja</td></tr>
+                  <tr><td><strong>Takeda</strong><span class="sub">Vendedor · login: takeda</span></td><td>Estoque, interessados, negociações, avaliações, agenda e tarefas</td></tr>
+                  <tr><td><strong>Maria</strong><span class="sub">Financeiro · login: maria</span></td><td>Financeiro, contabilidade, documentos e cartão de ponto. Estoque e interessados, só consulta</td></tr>
+                </tbody>
+              </table>
+              <p class="empty-note">Cada pessoa entra com o próprio login e senha. O sistema mostra para cada papel só o que ele pode ver e alterar.</p>
+            </div>
 
           <div class="crm-pane" id="pane-dados">
               <div class="cols">
@@ -778,6 +985,13 @@
           { name: "Honda Step WGN Spada", date: "12/10", price: 1150000 },
           { name: "Suzuki Swift XG", date: "28/10", price: 620000 }
         ],
+        expenses: [
+          { date: "05/10", desc: "Compra em leilão: Honda Fit 13G", cat: "Estoque", value: 610000 },
+          { date: "07/10", desc: "Transporte de 2 carros do leilão", cat: "Logística", value: 36000 },
+          { date: "10/10", desc: "Shaken e revisão do Step WGN Spada", cat: "Preparação", value: 88000 },
+          { date: "15/10", desc: "Anúncios e fotos do estoque", cat: "Anúncios", value: 12000 },
+          { date: "20/10", desc: "Documentação da reserva da Serena", cat: "Documentação", value: 25000 }
+        ],
         events: [
           "<strong>Ricardo M.</strong> perguntou pelo Prius (WhatsApp)",
           "<strong>Serena Highway Star</strong> marcada como reservada",
@@ -900,7 +1114,64 @@
       }
 
       function renderAll() {
-        renderKpis(); renderActivity(); renderStock(); renderLeads(); renderFinance(); renderSiteStock();
+        renderKpis(); renderActivity(); renderStock(); renderLeads(); renderFinance(); renderSiteStock(); renderNegotiations(); renderAccounting();
+      }
+
+
+      /* ---------- Negociações (funil) ---------- */
+      var NEG_STAGES = ["Novo contato", "Em conversa", "Proposta enviada", "Aguardando financiamento", "Vendido"];
+      var NEG_BUYERS = { "Honda Step WGN Spada": "Fernando K.", "Suzuki Swift XG": "Fernanda L." };
+      function negotiationsData() {
+        var list = [];
+        state.leads.forEach(function (l) {
+          var car = state.cars.find(function (c) { return c.name === l.car; });
+          var stage = { 0: "Novo contato", 1: "Em conversa", 2: "Proposta enviada", 3: "Vendido" }[l.status];
+          var note = "";
+          if (l.id === 3 && l.status === 2) {
+            stage = "Aguardando financiamento";
+            note = "Proposta enviada. O banco está analisando o financiamento.";
+          } else if (l.id === 1 && l.status === 0) {
+            note = "Chegou pelo WhatsApp. Visita marcada para hoje, às 15:00.";
+          } else if (l.id === 2) {
+            note = "Pode dar o Hustler 2019 dela na troca. Avaliação já feita.";
+          } else if (l.status === 3) {
+            note = "Venda fechada.";
+          }
+          list.push({ name: l.name, car: l.car, price: car ? car.price : null, stage: stage, note: note });
+        });
+        state.sales.forEach(function (s) {
+          list.push({ name: NEG_BUYERS[s.name] || "Cliente da loja", car: s.name, price: s.price, stage: "Vendido", note: "Venda fechada em " + s.date + "." });
+        });
+        return list;
+      }
+      function renderNegotiations() {
+        var list = negotiationsData();
+        el("negStrip").innerHTML = NEG_STAGES.map(function (st) {
+          var n = list.filter(function (x) { return x.stage === st; }).length;
+          return '<span class="fn-stage">' + st + "<b>" + n + "</b></span>";
+        }).join("");
+        el("negList").innerHTML = list.map(function (x) {
+          return '<div class="lead-row"><div><div class="l-name">' + x.name + '</div>' +
+            '<div class="l-meta">Negociando o <strong style="color:var(--ink)">' + x.car + "</strong>" + (x.price ? " · " + yen(x.price) : "") + "</div>" +
+            (x.note ? '<div class="neg-note">' + x.note + "</div>" : "") + "</div>" +
+            '<div class="lead-status"><span class="tag etapa">' + x.stage + "</span></div></div>";
+        }).join("");
+      }
+
+      /* ---------- Contabilidade ---------- */
+      function renderAccounting() {
+        var rec = state.sales.reduce(function (s, x) { return s + x.price; }, 0);
+        var desp = state.expenses.reduce(function (s, x) { return s + x.value; }, 0);
+        el("accReceitas").textContent = yen(rec);
+        el("accDespesas").textContent = yen(desp);
+        el("accSaldo").textContent = yen(rec - desp);
+        var rows = [];
+        state.sales.forEach(function (s) { rows.push({ d: s.date, desc: "Venda: " + s.name, cat: "Vendas", v: s.price }); });
+        state.expenses.forEach(function (e) { rows.push({ d: e.date, desc: e.desc, cat: e.cat, v: -e.value }); });
+        rows.sort(function (a, b) { return parseInt(a.d.split("/")[0], 10) - parseInt(b.d.split("/")[0], 10); });
+        el("accBody").innerHTML = rows.map(function (r) {
+          return "<tr><td>" + r.d + "</td><td>" + r.desc + '<span class="sub">' + r.cat + "</span></td><td class='num " + (r.v >= 0 ? "pos" : "neg") + "'>" + (r.v >= 0 ? "+ " : "- ") + yen(Math.abs(r.v)) + "</td></tr>";
+        }).join("");
       }
 
       /* ---------- Navegação principal ---------- */
