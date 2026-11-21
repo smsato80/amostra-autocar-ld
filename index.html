@@ -24,7 +24,7 @@
         --green:#25d366;
         --green-ink:#06270f;
         --red:#f87171;
-        --radius:14px;
+        --radius:12px;
       }
       html{ scroll-behavior:smooth; }
       body{
@@ -47,28 +47,28 @@
         position:sticky; top:0; z-index:40;
         background:rgba(10,10,11,.94);
         backdrop-filter:blur(8px);
-        
+        border-bottom:1px solid var(--line);
       }
       .topbar-in{ max-width:1060px; margin:0 auto; padding:10px 16px 0; }
       .brand-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:10px; }
       .brand-badge{
         background:var(--panel-3); border:1px solid var(--line); border-radius:10px;
-        font-family:"Oswald",sans-serif; font-weight:700; letter-spacing:.04em;
-        padding:6px 10px; font-size:15px; color:var(--ink); white-space:nowrap;
+        font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:.02em;
+        padding:6px 11px; font-size:15px; color:var(--ink); white-space:nowrap;
       }
       .brand-badge em{ font-style:normal; color:var(--yellow); }
       .brand-row .file-name{ color:var(--muted); font-size:14px; }
       .demo-pill{
         margin-left:auto;
         background:var(--yellow); color:var(--yellow-ink);
-        font-weight:700; font-size:12px; letter-spacing:.14em;
-        padding:5px 12px; border-radius:999px; white-space:nowrap;
+        font-weight:600; font-size:11.5px; letter-spacing:.1em;
+        padding:4px 10px; border-radius:8px; white-space:nowrap;
       }
       .tabs{ display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; }
       .tabs::-webkit-scrollbar{ display:none; }
       .tab-btn{
         background:transparent; border:0; color:var(--muted);
-        font-weight:600; font-size:16px; padding:12px 16px;
+        font-weight:600; font-size:15px; padding:11px 14px;
         border-radius:10px 10px 0 0; white-space:nowrap;
         display:inline-flex; align-items:center; gap:8px;
       }
@@ -78,7 +78,7 @@
       .tab-btn.cta.active{ background:var(--yellow); color:var(--yellow-ink); box-shadow:inset 0 0 0 2px rgba(0,0,0,.35); }
       .tab-badge{
         background:var(--yellow); color:var(--yellow-ink);
-        font-size:12px; font-weight:700; min-width:22px; height:22px;
+        font-size:11.5px; font-weight:600; min-width:20px; height:20px;
         border-radius:999px; display:inline-flex; align-items:center; justify-content:center; padding:0 6px;
       }
       .view{ display:none; padding-top:26px; }
@@ -89,8 +89,8 @@
 
       /* ---------- Apresentação ---------- */
       .apres h1{
-        font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
-        font-size:clamp(30px,6vw,46px); line-height:1.08; letter-spacing:.01em; margin-bottom:14px;
+        font-weight:600;
+        font-size:clamp(28px,6vw,40px); line-height:1.15; letter-spacing:-.01em; margin-bottom:14px;
       }
       .apres h1 span{ color:var(--yellow); }
       .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:28px 0; }
@@ -99,10 +99,10 @@
         padding:20px; display:flex; flex-direction:column; gap:10px;
       }
       .step .num{
-        font-family:"Oswald",sans-serif; font-size:14px; font-weight:700; color:var(--yellow);
-        letter-spacing:.2em;
+        font-size:13px; font-weight:600; color:var(--yellow);
+        letter-spacing:.08em;
       }
-      .step h3{ font-size:19px; font-weight:700; }
+      .step h3{ font-size:18px; font-weight:600; }
       .step p{ color:var(--muted); font-size:15px; flex:1; }
       .btn{
         display:inline-flex; align-items:center; justify-content:center; gap:8px;
@@ -142,19 +142,19 @@
       .crm-logo{
         width:46px; height:46px; border-radius:10px; background:#000; border:1px solid var(--line);
         display:flex; align-items:center; justify-content:center;
-        font-family:"Oswald",sans-serif; font-weight:700; font-size:15px; color:var(--ink);
+        font-family:"Oswald",sans-serif; font-weight:600; font-size:15px; color:var(--ink);
       }
       .crm-logo em{ font-style:normal; color:var(--yellow); }
-      .crm-head h2{ font-family:"Oswald",sans-serif; font-size:24px; font-weight:600; letter-spacing:.01em; }
+      .crm-head h2{ font-size:22px; font-weight:600; letter-spacing:0; }
       .crm-user{ margin-left:auto; display:flex; align-items:center; gap:10px; color:var(--muted); font-size:15px; }
       .avatar{
         width:40px; height:40px; border-radius:999px; background:var(--yellow); color:var(--yellow-ink);
-        display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px;
+        display:flex; align-items:center; justify-content:center; font-weight:600; font-size:17px;
       }
       .crm-tabs{ display:flex; gap:6px; flex-wrap:wrap; padding:14px 20px 0; }
       .crm-tab{
         background:var(--panel-3); color:var(--muted); border:1px solid var(--line);
-        border-radius:9px; padding:9px 16px; font-weight:600; font-size:15px;
+        border-radius:10px; padding:8px 14px; font-weight:600; font-size:14.5px;
         display:inline-flex; align-items:center; gap:8px;
       }
       .crm-tab.active{ background:var(--yellow); border-color:var(--yellow); color:var(--yellow-ink); }
@@ -165,7 +165,7 @@
       .kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:20px; }
       .kpi{ background:var(--panel-2); border:1px solid var(--line); border-radius:12px; padding:16px; }
       .kpi .k-label{ color:var(--muted); font-size:14px; font-weight:500; }
-      .kpi .k-value{ font-family:"Oswald",sans-serif; font-size:32px; font-weight:600; margin-top:4px; }
+      .kpi .k-value{ font-size:30px; font-weight:600; margin-top:4px; font-variant-numeric:tabular-nums; }
       .kpi .k-value.money{ color:var(--yellow); }
 
       .cols{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
@@ -175,8 +175,8 @@
       .box li:first-of-type{ border-top:0; }
       .box li strong{ color:var(--ink); }
       .tag{
-        display:inline-block; font-size:12px; font-weight:700; letter-spacing:.05em;
-        padding:2px 9px; border-radius:999px; vertical-align:1px;
+        display:inline-block; font-size:12px; font-weight:600; letter-spacing:.02em;
+        padding:2px 8px; border-radius:6px; vertical-align:1px;
       }
       .tag.new{ background:var(--yellow); color:var(--yellow-ink); }
       .tag.site{ background:#2b3a55; color:#bcd3ff; }
@@ -190,9 +190,9 @@
         padding:12px; margin-bottom:10px;
       }
       .car-row img{ width:96px; height:68px; object-fit:cover; border-radius:8px; }
-      .car-row .c-name{ font-weight:700; font-size:16px; }
+      .car-row .c-name{ font-weight:600; font-size:16px; }
       .car-row .c-meta{ color:var(--muted); font-size:14px; }
-      .car-row .c-price{ font-family:"Oswald",sans-serif; font-size:19px; color:var(--yellow); font-weight:600; }
+      .car-row .c-price{ font-size:18px; color:var(--yellow); font-weight:600; font-variant-numeric:tabular-nums; }
       .car-actions{ display:flex; flex-direction:column; gap:8px; align-items:stretch; }
       .status-sel{
         background:var(--panel-3); color:var(--ink); border:1px solid var(--line);
@@ -207,7 +207,7 @@
         padding:14px; margin-bottom:10px;
       }
       .lead-row.is-new{ border-color:var(--yellow); }
-      .lead-row .l-name{ font-weight:700; font-size:16px; }
+      .lead-row .l-name{ font-weight:600; font-size:16px; }
       .lead-row .l-meta{ color:var(--muted); font-size:14px; margin-top:2px; }
       .lead-status{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
       .fin-table{ width:100%; border-collapse:collapse; font-size:15px; }
@@ -215,7 +215,7 @@
       .fin-table td{ padding:11px 8px; border-bottom:1px solid var(--line); }
       .fin-table td.num, .fin-table th.num{ text-align:right; font-variant-numeric:tabular-nums; }
       .fin-total{ display:flex; justify-content:space-between; align-items:center; padding:16px 4px 0; font-size:17px; }
-      .fin-total strong{ font-family:"Oswald",sans-serif; font-size:24px; color:var(--yellow); }
+      .fin-total strong{ font-size:22px; color:var(--yellow); font-variant-numeric:tabular-nums; }
       .empty-note{ color:var(--muted-2); font-size:15px; padding:14px 4px; }
 
       .add-form{ display:grid; grid-template-columns:repeat(4,1fr) auto; gap:10px; margin-bottom:18px; }
@@ -231,14 +231,14 @@
         border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#101012;
       }
       .browser-bar{
-        display:flex; align-items:center; gap:12px; padding:11px 14px; background:var(--panel-2);
+        display:flex; align-items:center; gap:8px 10px; flex-wrap:wrap; padding:10px 14px; background:var(--panel-2);
         border-bottom:1px solid var(--line);
       }
       .dots{ display:flex; gap:7px; }
       .dots i{ width:12px; height:12px; border-radius:99px; background:#3a3a41; display:block; }
       .url-pill{
-        flex:1; max-width:430px; margin:0 auto; text-align:center;
-        background:#0c0c0e; border:1px solid var(--line); border-radius:999px;
+        flex:1 1 120px; min-width:0; max-width:430px; margin:0; text-align:center;
+        background:#0c0c0e; border:1px solid var(--line); border-radius:10px;
         padding:6px 14px; font-size:14px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
       }
       .url-pill b{ color:#4ade80; font-weight:600; }
@@ -250,24 +250,24 @@
         display:flex; flex-direction:column; justify-content:center; padding:28px;
       }
       .site-hero h2{
-        font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
-        font-size:clamp(30px,6.4vw,52px); line-height:1.05; max-width:520px;
+        font-weight:600;
+        font-size:clamp(28px,6vw,44px); line-height:1.12; letter-spacing:-.01em; max-width:520px;
       }
       .site-hero h2 span{ color:var(--yellow); }
       .site-hero p{ color:#e6e6e3; font-size:17px; max-width:480px; margin:14px 0 20px; }
       .hero-btns{ display:flex; gap:10px; flex-wrap:wrap; }
       .site-sec{ padding:26px 22px; }
       .site-sec h3{
-        font-family:"Oswald",sans-serif; text-transform:uppercase; font-size:24px; font-weight:600; margin-bottom:6px;
+        font-size:21px; font-weight:600; margin-bottom:6px;
       }
       .site-sec .sub{ color:var(--muted); margin-bottom:18px; }
       .stock-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
       .stock-card{ background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
       .stock-card img{ width:100%; height:190px; object-fit:cover; }
       .stock-card .sc-body{ padding:14px 16px 16px; }
-      .stock-card .sc-name{ font-weight:700; font-size:17px; }
+      .stock-card .sc-name{ font-weight:600; font-size:17px; }
       .stock-card .sc-meta{ color:var(--muted); font-size:14px; }
-      .stock-card .sc-price{ font-family:"Oswald",sans-serif; font-size:23px; color:var(--yellow); font-weight:600; margin-top:6px; }
+      .stock-card .sc-price{ font-size:22px; color:var(--yellow); font-weight:600; margin-top:6px; font-variant-numeric:tabular-nums; }
       .stock-card .sc-month{ color:var(--muted); font-size:14px; }
       .stock-card .sc-btns{ display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
       .sim-box{ background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px; }
@@ -277,7 +277,7 @@
         display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
       }
       .sim-result .sr-label{ color:var(--muted); }
-      .sim-result .sr-value{ font-family:"Oswald",sans-serif; font-size:30px; color:var(--yellow); font-weight:600; }
+      .sim-result .sr-value{ font-size:28px; color:var(--yellow); font-weight:600; font-variant-numeric:tabular-nums; }
       .site-foot{
         border-top:1px solid var(--line); padding:18px 22px; color:var(--muted); font-size:14px;
         display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
@@ -285,16 +285,16 @@
 
       /* ---------- Proposta ---------- */
       .prop h1{
-        font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
-        font-size:clamp(28px,5.6vw,42px); line-height:1.1; margin-bottom:12px;
+        font-weight:600;
+        font-size:clamp(26px,5.6vw,38px); line-height:1.15; letter-spacing:-.01em; margin-bottom:12px;
       }
       .prop h1 span{ color:var(--yellow); }
       .price-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:24px 0; }
       .price-card{ background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px; }
       .price-card.feature{ border-color:var(--yellow); }
-      .price-card .p-label{ color:var(--muted); font-weight:600; font-size:14px; letter-spacing:.08em; text-transform:uppercase; }
-      .price-card .p-value{ font-family:"Oswald",sans-serif; font-size:40px; font-weight:700; margin:6px 0; }
-      .price-card .p-value small{ font-size:17px; color:var(--muted); font-family:"Barlow",sans-serif; font-weight:500; }
+      .price-card .p-label{ color:var(--muted); font-weight:600; font-size:13.5px; }
+      .price-card .p-value{ font-size:36px; font-weight:600; margin:6px 0; font-variant-numeric:tabular-nums; }
+      .price-card .p-value small{ font-size:17px; color:var(--muted); font-weight:500; }
       .price-card p{ color:var(--muted); font-size:15px; }
       .prop .cols{ margin-bottom:14px; }
 
@@ -315,7 +315,7 @@
       .modal .m-btns .btn{ flex:1; }
       .toast{
         position:fixed; left:50%; bottom:22px; transform:translate(-50%, 90px);
-        background:var(--yellow); color:var(--yellow-ink); font-weight:700; font-size:15px;
+        background:var(--yellow); color:var(--yellow-ink); font-weight:600; font-size:15px;
         padding:13px 20px; border-radius:12px; z-index:90; transition:transform .3s ease;
         max-width:calc(100vw - 32px); text-align:center; box-shadow:0 10px 30px rgba(0,0,0,.5);
       }
@@ -350,25 +350,28 @@
       }
     
       /* ---------- Conecta+: Pergunte ao sistema ---------- */
-      .aios-box{ background:var(--panel); border:2px solid var(--yellow); border-radius:var(--radius); padding:20px; margin-top:14px; }
-      .aios-box .num{ color:var(--yellow); font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:.12em; font-size:13px; }
+      .aios-box{ background:var(--panel); border:1px solid rgba(247,201,72,.45); border-radius:var(--radius); padding:20px; margin-top:14px; }
+      .aios-box .num{ color:var(--yellow); font-weight:600; letter-spacing:.08em; font-size:12.5px; }
       .aios-box h3{ margin:6px 0 8px; }
       .aios-box p{ color:var(--muted); margin-bottom:14px; }
       .ask-chips{ display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 16px; }
-      .ask-chip{ background:var(--panel-3); color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:8px 14px; font-size:14.5px; font-weight:600; }
+      .ask-chip{ background:var(--panel-3); color:var(--ink); border:1px solid var(--line); border-radius:10px; padding:8px 13px; font-size:14.5px; font-weight:600; }
       .ask-chip:hover{ border-color:var(--yellow); color:var(--yellow); }
       .ask-log{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
       .ask-msg{ max-width:92%; border-radius:12px; padding:10px 14px; font-size:15.5px; }
       .ask-msg.q{ align-self:flex-end; background:var(--panel-3); border:1px solid var(--line); }
       .ask-msg.a{ align-self:flex-start; background:var(--panel-2); border:1px solid var(--line); border-left:4px solid var(--yellow); }
-      .ask-msg .quem{ display:block; font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:3px; }
+      .ask-msg .quem{ display:block; font-size:11.5px; font-weight:600; letter-spacing:.04em; margin-bottom:3px; }
       .ask-msg.q .quem{ color:var(--yellow); }
       .ask-msg.a .quem{ color:var(--muted); }
       .ask-row{ display:flex; gap:8px; }
       .ask-row input{ flex:1; background:var(--panel-2); border:1px solid var(--line); border-radius:10px; color:var(--ink); padding:11px 14px; font:inherit; font-size:15.5px; min-width:0; }
       .ask-note{ color:var(--muted-2); font-size:13.5px; margin-top:12px; }
+
+      /* ---------- Restyle 22/11: profundidade sutil nos cartoes ---------- */
+      .step,.kpi,.box,.car-row,.lead-row,.price-card,.stock-card,.sim-box,.includes,.crm-shell,.browser{ box-shadow:0 1px 3px rgba(0,0,0,.35); }
 </style>
-  <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style></head>
+  <style>.lang-sw{display:inline-flex;gap:4px;flex-wrap:wrap;margin-left:auto;vertical-align:middle}.lang-sw button{border:1px solid #2b2b31;background:#222228;color:#a7a7ae;font:inherit;font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;cursor:pointer}.lang-sw button.on{background:#f7c948;border-color:#f7c948;color:#171300}</style></head>
   <body>
     <header class="topbar">
       <div class="topbar-in">
@@ -1140,8 +1143,8 @@
 })();
 </script>
 <style>
-.fs-btn{margin-left:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--yellow);background:var(--yellow);color:#1b1b1b;font-weight:700;font-size:12px;cursor:pointer;font-family:inherit}
-.fs-note{position:fixed;right:10px;bottom:10px;z-index:999;background:#1b1b1b;color:#fff;border:1px solid var(--yellow);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;text-decoration:none;font-family:inherit}
+.fs-btn{margin-left:6px;padding:4px 10px;border-radius:8px;border:1px solid var(--yellow);background:var(--yellow);color:#1b1b1b;font-weight:600;font-size:12px;cursor:pointer;font-family:inherit}
+.fs-note{position:fixed;right:10px;bottom:10px;z-index:999;background:#1b1b1b;color:#fff;border:1px solid var(--yellow);padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;font-family:inherit}
 body.fs-mode .topbar{display:none}
 body.fs-mode .fs-btn{display:none}
 </style>
